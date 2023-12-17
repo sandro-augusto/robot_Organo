@@ -8,6 +8,15 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 * Extensions Vs Code
     * Robot Framework Language
     * Python
+* Link para baixar o projeto:
+    https://github.com/alura-cursos/robot-framework-organo/archive/refs/heads/main.zip
+
+* Passos para inicar o projeto Organo, entrar na pasta do projeto e dar os  comandos abaixo:
+```sh default
+* npm install
+```
+    * npm start
+
 
 ## ESTRUTURA DO PROJETO
 
