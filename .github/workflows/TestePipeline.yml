@@ -35,7 +35,7 @@ jobs:
 
     - name: Start npm
       run: |
-        cd organo  # Navega para o diretório onde o código foi extraído
+        cd robot-framework-organo-main  # Navega para o diretório onde o código foi extraído
         npm install  # Instala as dependências do projeto (se houver)
         sleep 10
         npm start &  # Inicia o projeto em segundo plano    
