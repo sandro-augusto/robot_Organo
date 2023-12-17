@@ -40,6 +40,9 @@ jobs:
         sleep 10
         npm start &  # Inicia o projeto em segundo plano    
 
+    - name: Verificar conteúdo do diretório de execução
+      run: ls
+
     - name: Run Robot Framework tests
       run: |
         # Aguarde alguns segundos para garantir que o npm start tenha tempo de iniciar completamente
