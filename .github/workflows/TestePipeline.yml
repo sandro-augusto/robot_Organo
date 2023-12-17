@@ -1,0 +1,57 @@
+name: Robot Framework Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install robotframework
+
+    - name: Download and extract ZIP
+      run: |
+        mkdir organo
+        curl -L https://github.com/alura-cursos/robot-framework-organo/archive/refs/heads/main.zip -o organo.zip
+        unzip organo.zip -d organo
+        rm organo.zip
+
+    - name: Verificar conteúdo do diretório
+      run: ls ./organo
+
+    - name: Start npm
+      run: |
+        cd /organo/robot-framework-organo-main  # Navega para o diretório onde o código foi extraído
+        npm install  # Instala as dependências do projeto (se houver)
+        sleep 10
+        npm start &  # Inicia o projeto em segundo plano    
+
+    - name: Verificar conteúdo do diretório de execução
+      run: ls
+
+    - name: Run Robot Framework tests
+      run: |
+        # Aguarde alguns segundos para garantir que o npm start tenha tempo de iniciar completamente
+        sleep 10
+        robot -d Results ./organo/features/
+
+    - name: Publish Robot Framework HTML report
+      if: always()  # Garante que este passo seja executado, mesmo se os passos anteriores falharem
+      uses: actions/upload-artifact@v2
+      with:
+        name: robot-results
+        path: Results
