@@ -1,4 +1,4 @@
-# AUTOMAÇÃO SAUCEDEMO WEB - ROBOT FRAMEWORK
+# AUTOMAÇÃO ORGANO WEB - ROBOT FRAMEWORK
 ## PRÉ-REQUISITOS
 Requisitos de software e hardware necessários para executar este projeto de automação
 
@@ -11,11 +11,25 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 * Link para baixar o projeto:
     https://github.com/alura-cursos/robot-framework-organo/archive/refs/heads/main.zip
 
-* Passos para inicar o projeto Organo, entrar na pasta do projeto e dar os  comandos abaixo:
-```sh default
+* Passos para inicar o projeto Organo localmente na sua maquina:
+
+    1- Abrir o CMD do seu computador:
+
+    2- Entrar na pasta do projeto:
+    
+    3- Acionar os comandos abaixo:
+
+* Para instalar as dependências do projeto:
+
+```sh 
 * npm install
 ```
-    * npm start
+
+* Para iniciar o projeto:
+
+```sh default
+* npm start
+```
 
 
 ## ESTRUTURA DO PROJETO
