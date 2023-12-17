@@ -30,6 +30,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework
 
+    - name: Start Projeto Organo
+      run: |
+        cd organo  
+        npm install
+        npm start
+
     - name: Run Robot Framework tests
       run: |
         robot -d Results ./features/
