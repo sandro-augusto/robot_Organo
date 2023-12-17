@@ -22,13 +22,13 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 * Para instalar as dependências do projeto:
 
 ```sh 
-* npm install
+ npm install
 ```
 
 * Para iniciar o projeto:
 
 ```sh default
-* npm start
+ npm start
 ```
 
 
