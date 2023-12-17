@@ -30,15 +30,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework
 
-    - name: Start Projeto Organo
+    - name: Start npm
       run: |
-        cd organo  
-        npm install
-        npm start
+        cd organo  # Navega para o diretório onde o código foi extraído
+        npm install  # Instala as dependências do projeto (se houver)
+        npm start &  # Inicia o projeto em segundo plano
 
     - name: Run Robot Framework tests
       run: |
-        robot -d Results ./features/
+        # Aguarde alguns segundos para garantir que o npm start tenha tempo de iniciar completamente
+        sleep 10
+        robot -d Results ./organo/features/
 
     - name: Publish Robot Framework HTML report
       if: always()  # Garante que este passo seja executado, mesmo se os passos anteriores falharem
