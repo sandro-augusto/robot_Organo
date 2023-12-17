@@ -19,10 +19,11 @@ jobs:
         python-version: 3.12
 
     - name: Download and extract ZIP
-      uses: montudor/action-download-zip@v2
-      with:
-        url: https://github.com/alura-cursos/robot-framework-organo/archive/refs/heads/main.zip
-        dest: ./organo
+      run: |
+        mkdir organo
+        curl -L https://github.com/alura-cursos/robot-framework-organo/archive/refs/heads/main.zip -o organo.zip
+        unzip organo.zip -d organo
+        rm organo.zip
 
     - name: Install dependencies
       run: |
