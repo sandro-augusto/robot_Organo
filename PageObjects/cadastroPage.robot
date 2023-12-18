@@ -25,8 +25,7 @@ ${cargoErro}           id:form-cargo-erro
 ${timeErro}            id:form-times-erro
 ${fakerNome}           
 ${FakerCargo}          
-${FakerImgage}         
-
+${FakerImage}  
 
 
 *** Keywords ***
@@ -37,14 +36,15 @@ Dado que o usuario esta no site do Organo
 
 Quando preencher o formulario com
 	[Arguments]    ${nome}    ${cargo}    ${time}
+	
 	${fakerNome}           FakerLibrary.First Name
     ${FakerCargo}          FakerLibrary.Job
-	${FakerImgage}         FakerLibrary.Image Url
+	${FakerImage}          FakerLibrary.Image Url
 
 	Scroll Element Into View    ${btnCriarCard}
-	Run Keyword If    '${nome}' != 'Null'    set    ${fieldNome}     ${fakerNome}
-	Run Keyword If    '${cargo}' != 'Null'   set    ${fieldCargo}    ${FakerCargo}
-    set    ${fieldImage}    ${FakerImgage}
+	Run Keyword If    '${nome}' != 'Null'    set           ${fieldNome}     ${fakerNome}
+	Run Keyword If    '${cargo}' != 'Null'   set           ${fieldCargo}    ${FakerCargo}
+    set                                                    ${fieldImage}    ${FakerImage}
 	Run Keyword If    '${time}' != 'Null'    clickIndex    ${fieldTime}    ${time}
 	Capture Page Screenshot
 	click    ${btnCriarCard}
@@ -71,11 +71,11 @@ Então o sistema exibirá a mensagem de erro
 	${text}=    Run Keyword If    '${campo}' == 'nome'     Get Text    ${nomeErro}
     ...    ELSE IF    '${campo}' == 'cargo'                Get Text    ${cargoErro}
 	...    ELSE IF    '${campo}' == 'time'                 Get Text    ${timeErro}
-	Should Be Equal As Strings    ${text}    ${message}
+	Should Be Equal As Strings                             ${text}    ${message}
 
 Então criar e identificar os 3 card's no time esperado
     FOR    ${i}    IN RANGE    1    3
-		Quando preencher o formulario com    ${fakerNome}    ${FakerCargo}    1
+		Quando preencher o formulario com                  ${fakerNome}    ${FakerCargo}    1
 	END	
 
 Então criar e identificar 1 card em cada time

@@ -1,8 +1,9 @@
 *** Settings ***
-Resource    ../resources/settings.robot
-Resource    ../PageObjects/cadastroPage.robot
+Resource         ../resources/settings.robot
+Resource         ../PageObjects/cadastroPage.robot
 Test Setup       Start Automation
 Task Teardown    Stop Automation
+
 
 *** Test Cases ***
 
